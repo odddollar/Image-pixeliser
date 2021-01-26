@@ -13,6 +13,18 @@ type Pixel struct {
 }
 
 func main() {
+	// get number of desired colour blocks
+
+	// open image
+
+	// resize to temporary image of size that fits number of desired blocks closest to current width
+
+	// get pixels from temporary image
+
+	// group pixels together and average
+
+	// write each pixel to output file
+
 	image.RegisterFormat("png", "png", png.Decode, png.DecodeConfig)
 
 	fmt.Println(readImagePixels(readImage("testImage.png")))
