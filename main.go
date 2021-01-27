@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"image"
 	"image/png"
 )
@@ -17,12 +16,11 @@ func main() {
 	// open image and get width and height
 	workingImage, workingImageWidth, workingImageHeight := readImage("testImage.png")
 
-	// get pixel array from image
-
 	// resize to temporary image of size that fits number of desired blocks closest to current width
 	newWidth, newHeight := getClosestDimensions(desiredX, desiredY, workingImageWidth, workingImageHeight)
 
-	// get pixels from temporary image
+	// get pixels from image, cropping to set dimensions
+	getImagePixels(workingImage, newWidth, newHeight)
 
 	// group pixels together and average
 
