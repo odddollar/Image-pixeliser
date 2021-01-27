@@ -6,7 +6,7 @@ The image is cropped to allow for the number of blocks to be divided evenly into
 
 Input: Image-pixeliser -f "Go logo.png" -x 16 -y 16
 
-![Go logo](examples\Go logo.png) 
+![Go logo](examples/Go logo.png) 
 
 Output:
 
