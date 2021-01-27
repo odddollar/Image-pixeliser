@@ -20,6 +20,6 @@ func readImage(path string) (image.Image, int, int) {
 		log.Fatal(err)
 	}
 
-	// return image
+	// return image, width and height
 	return img, img.Bounds().Max.X, img.Bounds().Max.Y
 }
