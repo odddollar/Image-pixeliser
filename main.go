@@ -23,6 +23,7 @@ func main() {
 	pixels := getImagePixels(workingImage, newWidth, newHeight)
 
 	// group pixels together and average
+	pixels = groupPixels(pixels, desiredX, desiredY)
 
 	// write each pixel to output file
 
