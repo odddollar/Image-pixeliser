@@ -3,3 +3,5 @@
 *.jpeg
 *.jpg
 *.png
+!examples/*.jpg
+!examples/*.png
