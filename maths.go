@@ -5,7 +5,7 @@ func groupPixels(pixels [][]Pixel, desiredX, desiredY int) [][]Pixel {
 	blockWidth := len(pixels[0]) / desiredX
 	blockHeight := len(pixels) / desiredY
 
-	// iterate through pixels
+	// iterate through colour blocks
 	for y := 0; y < len(pixels); y += blockHeight {
 		for x := 0; x < len(pixels[0]); x += blockWidth {
 			// create counters to find averages
