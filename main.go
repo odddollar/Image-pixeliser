@@ -20,7 +20,7 @@ func main() {
 	newWidth, newHeight := getClosestDimensions(desiredX, desiredY, workingImageWidth, workingImageHeight)
 
 	// get pixels from image, cropping to set dimensions
-	getImagePixels(workingImage, newWidth, newHeight)
+	pixels := getImagePixels(workingImage, newWidth, newHeight)
 
 	// group pixels together and average
 
