@@ -26,5 +26,5 @@ func main() {
 	pixels = groupPixels(pixels, desiredX, desiredY)
 
 	// write each pixel to output file
-
+	createImage(pixels)
 }

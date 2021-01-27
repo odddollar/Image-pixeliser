@@ -2,12 +2,41 @@ package main
 
 import (
 	"image"
+	"image/color"
+	"image/jpeg"
 	"log"
 	"os"
 )
 
 type Pixel struct {
 	R, G, B int
+}
+
+func createImage(pixels [][]Pixel) {
+	// create blank image
+	outputImage := image.NewRGBA(image.Rect(0, 0, len(pixels[0]), len(pixels)))
+
+	// create output file
+	outputFile, err := os.Create("output.jpeg")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func() { _ = outputFile.Close() }()
+
+	// iterate through pixels of array
+	for y := 0; y < len(pixels); y++ {
+		for x := 0; x < len(pixels[0]); x++ {
+			// set pixels of image to array values
+			outputImage.Set(x, y, color.RGBA{
+				R: uint8(pixels[y][x].R),
+				G: uint8(pixels[y][x].G),
+				B: uint8(pixels[y][x].B),
+			})
+		}
+	}
+
+	// encode image object to file
+	_ = jpeg.Encode(outputFile, outputImage, nil)
 }
 
 func getImagePixels(image image.Image, width, height int) [][]Pixel {
