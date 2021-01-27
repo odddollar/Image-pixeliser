@@ -12,7 +12,7 @@ Can be built to a binary using ```go build Image-pixeliser```.
 
 ## Example
 
-Input: Image-pixeliser -f "Go-logo.png" -x 16 -y 16
+Input: Image-pixeliser -f "Go-logo.png" -x 16 -y 16 -o "Go-logo-pixelised.jpg"
 
 ![Go logo](examples/Go-logo.png) 
 
