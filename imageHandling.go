@@ -17,7 +17,7 @@ func createImage(pixels [][]Pixel) {
 	outputImage := image.NewRGBA(image.Rect(0, 0, len(pixels[0]), len(pixels)))
 
 	// create output file
-	outputFile, err := os.Create("output.jpeg")
+	outputFile, err := os.Create("output.jpg")
 	if err != nil {
 		log.Fatal(err)
 	}
