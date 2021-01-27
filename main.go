@@ -19,6 +19,7 @@ func main() {
 	file := parser.String("f", "file", &argparse.Options{Required: true, Help: "The path of the image file to convert"})
 	width := parser.Int("x", "width", &argparse.Options{Required: true, Help: "The number of colour blocks to have along the x axis"})
 	height := parser.Int("y", "height", &argparse.Options{Required: true, Help: "The number of colour blocks to have along the y axis"})
+	output := parser.String("o", "output", &argparse.Options{Required: false, Help: "The output directory/filename of the processed image"})
 
 	// run argparser
 	if err := parser.Parse(os.Args); err != nil {
@@ -42,5 +43,5 @@ func main() {
 	pixels = groupPixels(pixels, desiredX, desiredY)
 
 	// write each pixel to output file
-	createImage(pixels)
+	createImage(pixels, *output)
 }

@@ -6,18 +6,27 @@ import (
 	"image/jpeg"
 	"log"
 	"os"
+	"strings"
 )
 
 type Pixel struct {
 	R, G, B int
 }
 
-func createImage(pixels [][]Pixel) {
+func createImage(pixels [][]Pixel, outputName string) {
 	// create blank image
 	outputImage := image.NewRGBA(image.Rect(0, 0, len(pixels[0]), len(pixels)))
 
+	// check that requested output name contains .jpg file type
+	if !strings.Contains(outputName, ".jpg") {
+		log.Fatal("Please ensure that output filenames use the .jpg extension")
+	}
+
 	// create output file
-	outputFile, err := os.Create("output.jpg")
+	if outputName == "" {
+		outputName = "output.jpg"
+	}
+	outputFile, err := os.Create(outputName)
 	if err != nil {
 		log.Fatal(err)
 	}
