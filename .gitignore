@@ -1,3 +1,5 @@
 .idea/
 *.exe
-output.jpeg
+*.jpeg
+*.jpg
+*.png
