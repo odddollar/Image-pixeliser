@@ -51,7 +51,7 @@ func getClosestDimensions(desiredX, desiredY, width, height int) (int, int) {
 		if i+desiredX > width { // if not possible to step up another level, return current level
 			resizedWidth = i
 			break
-		} else { // check if can step up another level, step up by that level
+		} else { // check if possible to step up another level, step up by that level
 			i += desiredX
 		}
 	}

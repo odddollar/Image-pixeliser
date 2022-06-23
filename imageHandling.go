@@ -32,7 +32,7 @@ func createImage(pixels [][]Pixel, outputName string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer func() { _ = outputFile.Close() }()
+	defer outputFile.Close()
 
 	// iterate through pixels of array
 	for y := 0; y < len(pixels); y++ {
@@ -60,7 +60,7 @@ func getImagePixels(image image.Image, width, height int) [][]Pixel {
 		// iterate through width to cropped dimension
 		for x := 0; x < width; x++ {
 			// append converted row to row array
-			row = append(row, convertToRGBA(image.At(x, y).RGBA()))
+			row = append(row, convertToRGB(image.At(x, y).RGBA()))
 		}
 
 		// append row to pixel array
@@ -71,7 +71,7 @@ func getImagePixels(image image.Image, width, height int) [][]Pixel {
 	return pixels
 }
 
-func convertToRGBA(r, g, b, _ uint32) Pixel {
+func convertToRGB(r, g, b, _ uint32) Pixel {
 	return Pixel{
 		R: int(r / 257),
 		G: int(g / 257),
@@ -85,7 +85,7 @@ func readImage(path string) (image.Image, int, int) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer func() { _ = file.Close() }()
+	defer file.Close()
 
 	// decode image to array
 	img, _, err := image.Decode(file)
